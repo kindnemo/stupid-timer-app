@@ -72,13 +72,15 @@ input[type=number]{
 .indicator{
     display: inline;
     margin: auto;
+    font-size: 20px;
 }
 .indi-hour{
-    margin-left: 3.5em;
+    margin-left: 2.5em;
 }
 .indi-minute{
     margin-left: 2em;
 }
+
 .buttons{
     display: flex;
     flex-direction: row;
@@ -109,5 +111,5 @@ button{
 
 button:hover{
     background-color: rgba(255,255,255,0.7);
-    color:rgba(255,255,255);
+    color:rgba(0,0,0);
 }
