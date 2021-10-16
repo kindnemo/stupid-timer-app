@@ -5,6 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timer</title>
+    
+    
+    
+    <!-- CSS -->
+    <link href="reset.css" rel="stylesheet">  <!--Resetter Css-->
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS -->
+
+
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet"> 
+    <!-- Fonts -->
+
+
+
 </head>
 <body>
     <div class="all">
@@ -14,19 +32,22 @@
             <p class="time" id="minute-count">00:</p>
             <p class="time" id="second-count">00</p>
         </div>
-        <div class="timer set-timer">
-            <div class="timer">
-                <span><p class="set-time">
+        <div class="setting">
+            <div class="setting-container">
+                <span><p class="declaration">
                     Set Timer For:
                 </p></span>
-                <div class="set-timer">
+                <div class="time-setting">
                     <form action="">
-                        <input type="number" id="day-set" name="day-set" value="day">
-                        <input type="number" id="hour-set" name="hour-set" value="hour">
-                        <input type="number" id="minute-set" name="minute-set" value="minute">
-                        <input type="number" id="second-set" name="second-set"
+                        <input type="number" class="setter" id="day-set" name="day-set" value="day">
+                        <input type="number" class="setter" id="hour-set" name="hour-set" value="hour">
+                        <input type="number"class="setter" id="minute-set" name="minute-set" value="minute">
+                        <input type="number"class="setter" id="second-set" name="second-set"
                         value="second">
-                        <button>Set</button>
+                        <div class="buttons">
+                            <button>Set</button>
+                            <button>Reset</button>
+                        </div>
                     </form>
                 </div>
             </div>

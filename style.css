@@ -1,0 +1,100 @@
+
+body{
+    background: url("images/colorful-background-abstract-digital-art-uhdpaper.com-hd-6.2640.jpg");
+    font-family: 'Quicksand', sans-serif;
+}
+
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer{
+    margin-top: 10vh;
+}
+
+.time{
+    display: inline-block;
+    font-size: 15vw;
+}
+
+.setting{
+    margin-top: 15vh;
+}
+
+.setting-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.declaration{
+    font-size: 5vw;
+}
+.time-setting{
+    margin-top: 5vh;
+}
+
+/* MAIN TIME SETTER BUTTONS OR SCROLLERS */
+.setter{
+    background: transparent;
+    border: solid red 1px;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 10vh;
+    font-size: 7vh;
+    background-color: rgba(255,255,255,0.4);
+    text-align: center;
+}
+
+/* Code to remove the arrow buttons from innput type="number" */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+
+
+
+
+
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2vh;
+}
+button{
+    margin: auto;
+    
+    
+    /* Stole this style of glass morphism from a website and tweaked it a little  */
+    
+    display: inline-block;
+    padding: 15px 20px;
+    border: 0;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(0,0,0,0.8);
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover{
+    background-color: rgba(255,255,255,0.7);
+    color:rgba(255,255,255);
+}
