@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="style.css">
     <!-- CSS -->
 
+    <!-- script -->
+    <script src="script.js" defer></script>
+    <!-- script -->
 
 
     <!-- Fonts -->
@@ -25,11 +28,15 @@
 
 </head>
 <body>
+    
     <div class="all">
         <div class="timer">
-            <p class="time" id="days-count">00:</p>
-            <p class="time" id="hour-count">00:</p>
-            <p class="time" id="minute-count">00:</p>
+            <p class="time" id="days-count">00</p>
+            <p class="time">:</p>
+            <p class="time" id="hour-count">00</p>
+            <p class="time">:</p>
+            <p class="time" id="minute-count">00</p>
+            <p class="time">:</p>
             <p class="time" id="second-count">00</p>
         </div>
         <div class="setting">
@@ -51,7 +58,7 @@
                             <p class="indicator">Second</p>
                         </div>
                         <div class="buttons">
-                            <button>Set</button>
+                            <button id="setBtn">Set</button>
                             <button>Reset</button>
                         </div>
                     </form>
