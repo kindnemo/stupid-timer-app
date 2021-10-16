@@ -47,6 +47,7 @@ body{
     font-size: 7vh;
     background-color: rgba(255,255,255,0.4);
     text-align: center;
+    transition: all 0.2s ease-in-out;
 }
 
 /* Code to remove the arrow buttons from innput type="number" */
@@ -63,8 +64,22 @@ input[type=number]{
 
 
 
-
-
+.indicator-container{
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+}
+.indicator{
+    display: inline;
+    margin: auto;
+    font-size: 20px;
+}
+.indi-hour{
+    margin-left: 2.5em;
+}
+.indi-minute{
+    margin-left: 2em;
+}
 
 .buttons{
     display: flex;
@@ -96,5 +111,5 @@ button{
 
 button:hover{
     background-color: rgba(255,255,255,0.7);
-    color:rgba(255,255,255);
+    color:rgba(0,0,0);
 }
