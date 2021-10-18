@@ -1,11 +1,10 @@
 let day, hour, minute, second;
 const setter = document.querySelector("#setBtn");
-let pSec = document.getElementById("second-count"),
-pMin = document.getElementById("minute-count");
-const setToTime = new Date(`1/${day}/2000`);
-// setToTime.setHours(hour);
-// setToTime.setMinutes(minute);
-// setToTime.setSeconds(second);
+let timern = new Date();
+let stDay = document.getElementById("day-count");
+let stHour = document.getElementById("hour-count");
+let stMin = document.getElementById("minute-count");
+let stSec = document.getElementById("second-count");
 
 
 
@@ -17,29 +16,18 @@ function assign(ev){
     minute = document.getElementById("minute-set").value;
     second = document.getElementById("second-set").value;
     
-    setInterval(secondChange, 1000);
-    setInterval(minuteChnage, 60000);
-    
+    let dateNow = parseInt(timern.getDate()) + parseInt(day);
+    dateNow.toString();
+    timern.setDate(dateNow);
+    timern.setHours(hour);
+    timern.setMinutes(minute);
+    timern.setSeconds(second);
+
+    stDay.innerHTML = timern.getDate();
+    stHour.innerHTML = timern.getHours();
+    stMin.innerHTML = timern.getMinutes();
+    stSec.innerHTML = timern.getSeconds();
+
 }
 
-
-function secondChange(){     //The second timer
-    if(second>=0){
-        pSec.innerHTML = `${second}`
-    }else{
-        return;
-    }
-    second--;
-}
-
-
-function minuteChnage(){     //The Minute timer
-    if(minute>=0){
-        pMin.innerHTML = `${minute}`;
-    }else{
-        return;
-    }
-    minute--
-}
 setter.addEventListener("click", assign);
-
