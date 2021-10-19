@@ -67,7 +67,6 @@ input[type=number]{
 .indicator-container{
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
 }
 .indicator{
     display: inline;

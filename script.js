@@ -1,11 +1,11 @@
 let day, hour, minute, second;
 const setter = document.querySelector("#setBtn");
-let timern = new Date();
+let ttSet = new Date();
 let stDay = document.getElementById("day-count");
 let stHour = document.getElementById("hour-count");
 let stMin = document.getElementById("minute-count");
 let stSec = document.getElementById("second-count");
-
+const now = new Date();
 
 
 function assign(ev){
@@ -16,18 +16,45 @@ function assign(ev){
     minute = document.getElementById("minute-set").value;
     second = document.getElementById("second-set").value;
     
-    let dateNow = parseInt(timern.getDate()) + parseInt(day);
+    let dateNow = parseInt(ttSet.getDate()) + parseInt(day);
     dateNow.toString();
-    timern.setDate(dateNow);
-    timern.setHours(hour);
-    timern.setMinutes(minute);
-    timern.setSeconds(second);
+    ttSet.setDate(dateNow);
 
-    stDay.innerHTML = timern.getDate();
-    stHour.innerHTML = timern.getHours();
-    stMin.innerHTML = timern.getMinutes();
-    stSec.innerHTML = timern.getSeconds();
+    let hourNow = parseInt(ttSet.getHours()) + parseInt(hour);
+    hourNow.toString();
+    ttSet.setHours(hourNow);
 
+    let minNow = parseInt(ttSet.getMinutes() + parseInt(minute));
+    minNow.toString();
+    ttSet.setMinutes(minNow);
+
+    let secNow = parseInt(ttSet.getMinutes() + parseInt(second));
+    secNow.toString();
+    ttSet.setSeconds(secNow);
+    finalSetter();
 }
 
+function finalSetter(){
+    let toGo = ttSet.getTime() - now.getTime();
+
+
+    //Idk what am I doing but this is the basic of how time is being calculated
+    const sec = 1000,
+    min = sec * 60,
+    our = min * 60,
+    dat = our * 24;
+
+    let textDay = Math.floor(toGo / dat),
+    textHour = Math.floor((toGo % dat) / our),
+    textMin = Math.floor((toGo % our) / min),
+    textSec = Math.floor((toGo % min) / sec);
+
+    stDay.innerHTML = textDay;
+    stHour.innerHTML = textHour;
+    stMin.innerHTML = textMin;
+    stSec.innerHTML = textSec;
+    // console.log(textSec);
+}
 setter.addEventListener("click", assign);
+
+
