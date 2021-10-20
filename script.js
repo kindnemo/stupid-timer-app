@@ -16,17 +16,30 @@ function assign(ev){
     minute = document.getElementById("minute-set").value;
     second = document.getElementById("second-set").value;
     
-    let dateNow = parseInt(ttSet.getDate()) + parseInt(day);
-    dateNow.toString();
-    ttSet.setDate(dateNow);
 
-    let hourNow = parseInt(ttSet.getHours()) + parseInt(hour);
-    hourNow.toString();
-    ttSet.setHours(hourNow);
+    if(day === undefined || day === ""){
+        // ttSet = new Date();
+    }else{
+        let dateNow = parseInt(ttSet.getDate()) + parseInt(day);
+        dateNow.toString();
+        ttSet.setDate(dateNow);
+    }
+    
+    if(hour === undefined || hour === ""){
 
-    let minNow = parseInt(ttSet.getMinutes() + parseInt(minute));
-    minNow.toString();
-    ttSet.setMinutes(minNow);
+    }else{
+        let hourNow = parseInt(ttSet.getHours()) + parseInt(hour);
+        hourNow.toString();
+        ttSet.setHours(hourNow);
+    }
+
+    if( minute === undefined || minute === ""){
+    
+    }else{
+        let minNow = parseInt(ttSet.getMinutes() + parseInt(minute));
+        minNow.toString();
+        ttSet.setMinutes(minNow);
+    }
 
     let secNow = parseInt(ttSet.getMinutes() + parseInt(second));
     secNow.toString();
