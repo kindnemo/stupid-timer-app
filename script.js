@@ -5,7 +5,7 @@ let stDay = document.getElementById("day-count");
 let stHour = document.getElementById("hour-count");
 let stMin = document.getElementById("minute-count");
 let stSec = document.getElementById("second-count");
-const now = new Date();
+
 
 
 function assign(ev){
@@ -31,10 +31,12 @@ function assign(ev){
     let secNow = parseInt(ttSet.getMinutes() + parseInt(second));
     secNow.toString();
     ttSet.setSeconds(secNow);
-    finalSetter();
+    setInterval(finalSetter, 1000);
 }
 
 function finalSetter(){
+    // now.setSeconds(second);
+    const now = new Date();          //The problem was that I had to add the current time right here so that everytime the code runs it keeps resetting the curremt time
     let toGo = ttSet.getTime() - now.getTime();
 
 
