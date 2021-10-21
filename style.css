@@ -131,9 +131,16 @@ button:hover{
     color:rgba(0,0,0);
 }
 
+
+
+
+/* MEDIA QUERIES  */
+
+
 @media (max-width: 444px) {
     .setter{
         width: 20vw;
+        height: auto;
     }
     .indicator{
         margin: auto;
