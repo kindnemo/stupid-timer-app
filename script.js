@@ -1,22 +1,25 @@
 let day, hour, minute, second;
-const setter = document.querySelector("#setBtn");
+const setBtn = document.querySelector("#setBtn");
 let ttSet = new Date();
 let stDay = document.getElementById("day-count");
 let stHour = document.getElementById("hour-count");
 let stMin = document.getElementById("minute-count");
 let stSec = document.getElementById("second-count");
-
+let setter = document.getElementsByClassName("setter");
 
 
 function assign(ev){
     
     ev.preventDefault(); //This is to prevent the button from submitting and reloading the page
+    
+    
     day = document.getElementById("day-set").value;
     hour = document.getElementById("hour-set").value;
     minute = document.getElementById("minute-set").value;
     second = document.getElementById("second-set").value;
     
 
+    // Parsing adn setting the users input date and time to countdown to
     if(day === undefined || day === ""){
         // ttSet = new Date();
     }else{
@@ -44,16 +47,18 @@ function assign(ev){
     let secNow = parseInt(ttSet.getMinutes() + parseInt(second));
     secNow.toString();
     ttSet.setSeconds(secNow);
+
+
     setInterval(finalSetter, 1000);
 }
 
 function finalSetter(){
-    // now.setSeconds(second);
+    
     const now = new Date();          //The problem was that I had to add the current time right here so that everytime the code runs it keeps resetting the curremt time
-    let toGo = ttSet.getTime() - now.getTime();
-
+    
 
     //Idk what am I doing but this is the basic of how time is being calculated
+    let toGo = ttSet.getTime() - now.getTime();
     const sec = 1000,
     min = sec * 60,
     our = min * 60,
@@ -64,12 +69,35 @@ function finalSetter(){
     textMin = Math.floor((toGo % our) / min),
     textSec = Math.floor((toGo % min) / sec);
 
-    stDay.innerHTML = textDay;
-    stHour.innerHTML = textHour;
-    stMin.innerHTML = textMin;
-    stSec.innerHTML = textSec;
-    // console.log(textSec);
+    
+    // day Update
+    if(textDay<=9){
+        stDay.innerHTML = "0"+textDay;
+    }else{
+        stDay.innerHTML = textDay;
+    }
+    
+    //hour update
+    if(textHour<=9){
+        stHour.innerHTML = "0"+textHour;
+    }else{
+        stHour.innerHTML = textHour;
+    }
+
+    //minute update
+    if(textMin<=9){
+        stMin.innerHTML = "0"+textMin;
+    }else{
+        stMin.innerHTML = textMin;
+    }
+    
+    //second update
+    if(textSec<=9){
+        stSec.innerHTML = "0" + textSec;
+    }else{
+        stSec.innerHTML = textSec;
+    }
 }
-setter.addEventListener("click", assign);
+setBtn.addEventListener("click", assign);
 
 
