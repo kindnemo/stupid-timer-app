@@ -46,10 +46,23 @@
                 </p></span>
                 <div class="time-setting">
                     <form action="">
-                        <input type="number" class="setter" id="day-set" name="day-set" value="day"max="30" min="0" placeholder="00">
-                        <input type="number" class="setter" id="hour-set" name="hour-set" value="hour"max="23" min="0" placeholder="00"> 
-                        <input type="number"class="setter" id="minute-set" name="minute-set" value="minute" max="59" min="0" placeholder="00">
-                        <input type="number"class="setter" id="second-set" name="second-set"value="second" max="59" min="0" placeholder="00">
+                        
+                        <!-- Day Input -->
+                        <input type="number" class="setter" id="day-set" name="day-set" value="day"max="30" min="0" placeholder="00"onkeyup="if(parseInt(this.value)>30){ this.value =30; return false; }">
+                        
+                        
+                        <!-- Hour input -->
+                        <input type="number" class="setter" id="hour-set" name="hour-set" value="hour"max="23" min="0" placeholder="00" onkeyup="if(parseInt(this.value)>23){ this.value =23; return false; }"> 
+                        
+                        
+                        <!-- Minute input -->
+                        <input type="number"class="setter" id="minute-set" name="minute-set" value="minute" max="59" min="0" placeholder="00"onkeyup="if(parseInt(this.value)>59){ this.value =59; return false; }">
+                        
+                        
+                        <!-- Second input -->
+                        <input type="number"class="setter" id="second-set" name="second-set"value="second" max="59" min="0" placeholder="00"onkeyup="if(parseInt(this.value)>59){ this.value =59; return false; }">
+                        
+                        
                         <div class="indicator-container">
                             <p class="indicator indi-day">Days</p>
                             <p class="indicator indi-hour">Hours</p>
