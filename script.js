@@ -1,5 +1,6 @@
 let day, hour, minute, second;
 const setBtn = document.querySelector("#setBtn");
+const resetBtn = document.querySelector("#resetBtn");
 let ttSet = new Date();
 let stDay = document.getElementById("day-count");
 let stHour = document.getElementById("hour-count");
@@ -43,16 +44,24 @@ function assign(ev){
         minNow.toString();
         ttSet.setMinutes(minNow);
     }
-
-    let secNow = parseInt(ttSet.getMinutes() + parseInt(second));
-    secNow.toString();
-    ttSet.setSeconds(secNow);
+    if(second===undefined || second === ""){
+        return;
+    }else{
+        let secNow = parseInt(ttSet.getMinutes() + parseInt(second));
+        secNow.toString();
+        ttSet.setSeconds(secNow);
+    }
+    
 
 
     setInterval(finalSetter, 1000);
 }
 
 function finalSetter(){
+    document.getElementById("day-set").value="";
+    document.getElementById("hour-set").value="";
+    document.getElementById("minute-set").value="";
+    document.getElementById("second-set").value="";
     
     const now = new Date();          //The problem was that I had to add the current time right here so that everytime the code runs it keeps resetting the curremt time
     
