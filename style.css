@@ -1,6 +1,7 @@
 
 body{
-    background: url("images/colorful-background-abstract-digital-art-uhdpaper.com-hd-6.2640.jpg");
+    background: url("images/dark\ hourglass.jpg");
+    background-position:center;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -9,7 +10,9 @@ body{
     flex-direction: column;
     align-items: center;
 }
-
+.declaration{
+    color: white;
+}
 .timer{
     margin-top: 10vh;
     padding: 15px 3vw;
@@ -19,7 +22,7 @@ body{
     background-color: rgba(255,255,255,0.4);
     border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(30px);
-    color: rgba(0,0,0,0.8);
+    color: rgba(255,255,255,0.8);
     font-size: 14px;
     letter-spacing: 2px;
     cursor: pointer;
@@ -59,6 +62,7 @@ body{
     height: 10vh;
     font-size: 7vh;
     background-color: rgba(255,255,255,0.4);
+    color: white;
     text-align: center;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
@@ -85,6 +89,7 @@ input[type=number]{
 .indicator-container{
     display: flex;
     flex-direction: row;
+    color: white;
 }
 .indicator{
     display: inline;
@@ -118,8 +123,10 @@ button{
     background-color: rgba(255,255,255,0.4);
     border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(30px);
-    color: rgba(0,0,0,0.8);
+    color: rgba(255,255,255,0.8);
     font-size: 14px;
+    font-family: sans-serif;
+    font-weight: 600;
     letter-spacing: 2px;
     cursor: pointer;
     text-transform: uppercase;
@@ -142,15 +149,17 @@ button:hover{
         width: 20vw;
         height: auto;
     }
-    .indicator{
-        margin: auto;
+    .indicator.indi-minute{
+        /* margin: auto; */
+        /* margin-left: -1px; */
+        margin-right: 25px;
     }
     .time{
         font-size: 15vw;
     }
     .indicator-container{
         display: flex;
-        justify-content: space-around;   
+        justify-content: space-evenly;   
     }
     .buttons{
         margin-top: 10vh;

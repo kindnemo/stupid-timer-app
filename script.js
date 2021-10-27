@@ -52,9 +52,9 @@ function assign(ev){
         ttSet.setSeconds(secNow);
     }
     
-
-
     setInterval(finalSetter, 1000);
+   
+    
 }
 
 function finalSetter(){
@@ -77,7 +77,6 @@ function finalSetter(){
     textHour = Math.floor((toGo % dat) / our),
     textMin = Math.floor((toGo % our) / min),
     textSec = Math.floor((toGo % min) / sec);
-
     
     // day Update
     if(textDay<=9){
@@ -106,6 +105,10 @@ function finalSetter(){
     }else{
         stSec.innerHTML = textSec;
     }
+
+
+    // When the timer ends the function must stop running
+    
 }
 setBtn.addEventListener("click", assign);
 
