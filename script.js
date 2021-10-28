@@ -1,18 +1,26 @@
 let day, hour, minute, second;
 const setBtn = document.querySelector("#setBtn");
 const resetBtn = document.querySelector("#resetBtn");
+const pauseBtn = document.querySelector("#pauseBtn");
 let ttSet = new Date();
 let stDay = document.getElementById("day-count");
 let stHour = document.getElementById("hour-count");
 let stMin = document.getElementById("minute-count");
 let stSec = document.getElementById("second-count");
 let setter = document.getElementsByClassName("setter");
+let timeCount = 0;
+
+
+
 
 
 function assign(ev){
-    
+
     ev.preventDefault(); //This is to prevent the button from submitting and reloading the page
     
+    
+    ttSet = new Date(); //To reset the timer date and time everytime the useer sets a new timer while the old timer is running
+
     
     day = document.getElementById("day-set").value;
     hour = document.getElementById("hour-set").value;
@@ -45,23 +53,39 @@ function assign(ev){
         ttSet.setMinutes(minNow);
     }
     if(second===undefined || second === ""){
-        return;
+        ttSet.setSeconds(59);
     }else{
         let secNow = parseInt(ttSet.getMinutes() + parseInt(second));
         secNow.toString();
         ttSet.setSeconds(secNow);
     }
-    
-    setInterval(finalSetter, 1000);
-   
-    
-}
 
-function finalSetter(){
+
+
+
+
     document.getElementById("day-set").value="";
     document.getElementById("hour-set").value="";
     document.getElementById("minute-set").value="";
     document.getElementById("second-set").value="";
+    
+    let int = setInterval(finalSetter, 1000);  //Fix this asap
+    setInterval(
+        ()=>{
+            if(timeCount != 0){
+                clearInterval(int);
+                timeCount = 0;
+                console.log('end');
+                return;
+            }
+        }, 100
+    );
+
+
+}
+
+function finalSetter(){
+    
     
     const now = new Date();          //The problem was that I had to add the current time right here so that everytime the code runs it keeps resetting the curremt time
     
@@ -77,6 +101,12 @@ function finalSetter(){
     textHour = Math.floor((toGo % dat) / our),
     textMin = Math.floor((toGo % our) / min),
     textSec = Math.floor((toGo % min) / sec);
+    
+    if((textSec ==0 && textMin==0)&&(textDay ==0 && textHour == 0 )){ //Fix this asap
+        timeCount = 1;
+    }
+    
+    
     
     // day Update
     if(textDay<=9){
@@ -106,10 +136,12 @@ function finalSetter(){
         stSec.innerHTML = textSec;
     }
 
+    
 
     // When the timer ends the function must stop running
     
 }
-setBtn.addEventListener("click", assign);
 
+
+setBtn.addEventListener("click", assign);
 
