@@ -8,7 +8,7 @@ let stHour = document.getElementById("hour-count");
 let stMin = document.getElementById("minute-count");
 let stSec = document.getElementById("second-count");
 let setter = document.getElementsByClassName("setter");
-let timeCount = 0;
+let interval;
 
 
 
@@ -19,7 +19,7 @@ function assign(ev){
     ev.preventDefault(); //This is to prevent the button from submitting and reloading the page
     
     
-    ttSet = new Date(); //To reset the timer date and time everytime the useer sets a new timer while the old timer is running
+    ttSet = new Date(); //To reset the timer date and time everytime the user sets a new timer while the old timer is running
 
     
     day = document.getElementById("day-set").value;
@@ -27,6 +27,11 @@ function assign(ev){
     minute = document.getElementById("minute-set").value;
     second = document.getElementById("second-set").value;
     
+    
+    if((day===""&&hour=="")&&(minute===""&&second==="")){ //If the user tries to set and empty timer it'll just not work
+        return;
+    }
+
 
     // Parsing adn setting the users input date and time to countdown to
     if(day === undefined || day === ""){
@@ -52,7 +57,8 @@ function assign(ev){
         minNow.toString();
         ttSet.setMinutes(minNow);
     }
-    if(second===undefined || second === ""){
+
+    if(second === ""){
         ttSet.setSeconds(59);
     }else{
         let secNow = parseInt(ttSet.getMinutes() + parseInt(second));
@@ -69,17 +75,7 @@ function assign(ev){
     document.getElementById("minute-set").value="";
     document.getElementById("second-set").value="";
     
-    let int = setInterval(finalSetter, 1000);  //Fix this asap
-    setInterval(
-        ()=>{
-            if(timeCount != 0){
-                clearInterval(int);
-                timeCount = 0;
-                console.log('end');
-                return;
-            }
-        }, 100
-    );
+    interval = setInterval(finalSetter, 1000)
 
 
 }
@@ -102,8 +98,8 @@ function finalSetter(){
     textMin = Math.floor((toGo % our) / min),
     textSec = Math.floor((toGo % min) / sec);
     
-    if((textSec ==0 && textMin==0)&&(textDay ==0 && textHour == 0 )){ //Fix this asap
-        timeCount = 1;
+    if((textSec <=0 && textMin<=0)&&(textDay <=0 && textHour <= 0 )){  //Stops the timer when it reaches 0
+        clearInterval(interval);
     }
     
     
@@ -142,6 +138,11 @@ function finalSetter(){
     
 }
 
+function pauseFunc(eve){
+    eve.preventDefault();
+    pauseBtn.innerHTML = "Resume";
+
+}
 
 setBtn.addEventListener("click", assign);
-
+pauseBtn.addEventListener("click",pauseFunc);
