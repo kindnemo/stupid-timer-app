@@ -1,14 +1,21 @@
 let day, hour, minute, second;
+
 const setBtn = document.querySelector("#setBtn");
 const resetBtn = document.querySelector("#resetBtn");
-const pauseBtn = document.querySelector("#pauseBtn");
+const pauseBtn = document.querySelector("#pauseBtn"); //pauseBtn
+
 let ttSet = new Date();
+let pauseTime;
+let resumeBtn;
+let resume;
+
 let stDay = document.getElementById("day-count");
 let stHour = document.getElementById("hour-count");
 let stMin = document.getElementById("minute-count");
 let stSec = document.getElementById("second-count");
 let setter = document.getElementsByClassName("setter");
-let interval;
+
+let interval = false;
 
 
 
@@ -140,9 +147,23 @@ function finalSetter(){
 
 function pauseFunc(eve){
     eve.preventDefault();
+    if(resume == true){
+        pauseBtn.innerHTML = "Pause";
+        resume = false;
+    }
+    clearInterval(interval);
     pauseBtn.innerHTML = "Resume";
-
+    resume = true;
 }
+
+// function resumeFunc(eve){
+//     eve.preventDefault();
+//     resumeBtn.innerHTML = "Pause";
+//     resumeBtn.id = "pauseBtn";
+//     resumeBtn.classList.remove("resumeBtn");
+
+// }
 
 setBtn.addEventListener("click", assign);
 pauseBtn.addEventListener("click",pauseFunc);
+
