@@ -5,9 +5,8 @@ const resetBtn = document.querySelector("#resetBtn");
 const pauseBtn = document.querySelector("#pauseBtn"); //pauseBtn
 
 let ttSet = new Date();
-let pauseTime;
 let resumeBtn;
-let resume;
+let resume = false;
 
 let stDay = document.getElementById("day-count");
 let stHour = document.getElementById("hour-count");
@@ -28,7 +27,6 @@ function assign(ev){
     
     ttSet = new Date(); //To reset the timer date and time everytime the user sets a new timer while the old timer is running
 
-    
     day = document.getElementById("day-set").value;
     hour = document.getElementById("hour-set").value;
     minute = document.getElementById("minute-set").value;
@@ -145,25 +143,18 @@ function finalSetter(){
     
 }
 
-function pauseFunc(eve){
+function pauseFunc(eve){  //This is a pause function to pause and resume the timer doesn't work tho
     eve.preventDefault();
-    if(resume == true){
-        pauseBtn.innerHTML = "Pause";
-        resume = false;
-    }
-    clearInterval(interval);
-    pauseBtn.innerHTML = "Resume";
-    resume = true;
+    if(!resume) {
+        pauseBtn.innerText = "Resume";
+        clearInterval(interval);
+      }else{
+          pauseBtn.innerText = "Pause";
+          interval = setInterval(finalSetter, 1000);
+          resume=true;
+      }
+      resume = ! resume;
 }
-
-// function resumeFunc(eve){
-//     eve.preventDefault();
-//     resumeBtn.innerHTML = "Pause";
-//     resumeBtn.id = "pauseBtn";
-//     resumeBtn.classList.remove("resumeBtn");
-
-// }
 
 setBtn.addEventListener("click", assign);
 pauseBtn.addEventListener("click",pauseFunc);
-
